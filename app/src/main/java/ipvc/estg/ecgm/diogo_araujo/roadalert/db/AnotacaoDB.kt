@@ -22,7 +22,7 @@ public abstract class AnotacaoDB : RoomDatabase() {
             INSTANCE?.let { databse -> scope.launch {
                     var anotacaoDao = databse.anotacaoDao()
 
-                    //add sample words
+                    //add sample
                     var anotacao = Anotacao(1, "Nota1", "DESCRI", "10")
                     anotacaoDao.insert(anotacao)
                     anotacao = Anotacao(2, "Nota2", "DESCRI2", "12")

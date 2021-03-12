@@ -18,23 +18,28 @@ class AnotacaoAdapter internal constructor(
     private var anotacoes = emptyList<Anotacao>()
 
     class AnotacaoViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
-        val AnotacaoItemView: TextView = itemView.findViewById(R.id.textView)
+        val anotacaoTitulo: TextView = itemView.findViewById(R.id.AnotacaoTitulo)
+        val anotacaoDescricao: TextView = itemView.findViewById(R.id.AnotacaoDescricao)
+        val anotacaoAtualizada: TextView = itemView.findViewById(R.id.AnotacaoAtualizada)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnotacaoViewHolder {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnotacaoAdapter.AnotacaoViewHolder {
         val itemView = inflater.inflate(R.layout.recyclerview_item, parent, false)
         return AnotacaoViewHolder(itemView)
     }
 
+    override fun getItemCount() = anotacoes.size
+
     override fun onBindViewHolder(holder: AnotacaoViewHolder, position: Int){
         val current = anotacoes[position]
-        holder.AnotacaoItemView.text = current.titulo
+        holder.anotacaoTitulo.text = current.titulo
+        holder.anotacaoDescricao.text = current.descricao
+        holder.anotacaoAtualizada.text = current.atualizada
     }
 
     internal fun setAnotacoes(anotacoes: List<Anotacao>){
         this.anotacoes = anotacoes
         notifyDataSetChanged()
     }
-
-    override fun getItemCount() = anotacoes.size
 }
