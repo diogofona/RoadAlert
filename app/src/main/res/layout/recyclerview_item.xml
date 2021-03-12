@@ -25,6 +25,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/AnotacaoAtualizada"
         android:padding="10dp"
-        android:background="@android:color/holo_blue_light" />
+        android:background="@android:color/background_light" />
 
 </LinearLayout>
