@@ -3,4 +3,13 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+
+    <color name="MyBrown">#562C2C</color>
+    <color name="MyOrangeB">#F2542D</color>
+    <color name="MyOrangeO">#EF7A43</color>
+    <color name="MyWeat">#F2D5A6</color>
+    <color name="MyWhite">#FFFFFF</color>
+    <color name="MyGrayO">#ADADAD</color>
+    <color name="MyBlack">#031112</color>
+    <color name="MyGrayL">#c2c2c2</color>
 </resources>

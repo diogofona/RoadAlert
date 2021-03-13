@@ -23,9 +23,9 @@ public abstract class AnotacaoDB : RoomDatabase() {
                     var anotacaoDao = databse.anotacaoDao()
 
                     //add sample
-                    var anotacao = Anotacao(1, "Nota1", "DESCRI", "10")
+                    var anotacao = Anotacao(1, "Nota1", "DESCRI", "1")
                     anotacaoDao.insert(anotacao)
-                    anotacao = Anotacao(2, "Nota2", "DESCRI2", "12")
+                    anotacao = Anotacao(2, "Nota2", "DESCRI2", "2")
                     anotacaoDao.insert(anotacao)
                 }
             }

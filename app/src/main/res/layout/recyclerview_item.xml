@@ -3,28 +3,37 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="16dp"
+    android:layout_margin="10dp"
     android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/MyGrayL"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/AnotacaoTitulo"
         android:padding="10dp"
-        android:background="@android:color/holo_blue_light" />
+        android:textSize="10pt"
+        android:textColor="@color/MyOrangeB" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:id="@+id/AnotacaoDescricao"
-        android:padding="10dp"
-        android:background="@android:color/holo_blue_light" />
+        android:padding="5dp"
+        android:textSize="6pt"
+        android:layout_marginStart="20dp"
+        android:textColor="@color/MyGrayO" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/AnotacaoAtualizada"
-        android:padding="10dp"
-        android:background="@android:color/background_light" />
+        android:padding="0dp"
+        android:textSize="0pt"
+        android:textColor="@color/MyGrayL" />
 
 </LinearLayout>
