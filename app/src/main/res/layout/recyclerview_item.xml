@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:background="@color/MyGrayL"/>
 
     <TextView
@@ -19,13 +21,23 @@
         android:textSize="10pt"
         android:textColor="@color/MyOrangeB" />
 
+    <View
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/ic_right" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:id="@+id/AnotacaoDescricao"
+        android:layout_below="@id/AnotacaoTitulo"
         android:padding="5dp"
         android:textSize="6pt"
         android:layout_marginStart="20dp"
+        android:layout_marginEnd="60dp"
         android:textColor="@color/MyGrayO" />
 
     <TextView
@@ -36,4 +48,4 @@
         android:textSize="0pt"
         android:textColor="@color/MyGrayL" />
 
-</LinearLayout>
+</RelativeLayout>
