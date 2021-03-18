@@ -14,11 +14,13 @@ class AnotacaoViewModel(application: Application) : AndroidViewModel(application
 
     private val repository: AnotacaoRepository
     val allAnotacao: LiveData<List<Anotacao>>
+    val lastAtualizada: LiveData<List<Anotacao>>
 
     init {
         val anotacoesDao = AnotacaoDB.getDatabase(application, viewModelScope).anotacaoDao()
         repository = AnotacaoRepository(anotacoesDao)
         allAnotacao = repository.allAnotacao
+        lastAtualizada = repository.lastAtualizada
     }
 
     fun insert(anotacao: Anotacao) = viewModelScope.launch(Dispatchers.IO){

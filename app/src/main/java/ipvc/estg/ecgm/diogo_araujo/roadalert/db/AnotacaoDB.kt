@@ -10,7 +10,7 @@ import ipvc.estg.ecgm.diogo_araujo.roadalert.entities.Anotacao
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Database(entities = arrayOf(Anotacao::class), version = 1, exportSchema = false)
+@Database(entities = arrayOf(Anotacao::class), version = 3, exportSchema = false)
 public abstract class AnotacaoDB : RoomDatabase() {
 
     abstract fun anotacaoDao(): AnotacaoDao
@@ -23,9 +23,9 @@ public abstract class AnotacaoDB : RoomDatabase() {
                     var anotacaoDao = databse.anotacaoDao()
 
                     //add sample
-                    var anotacao = Anotacao(1, "Nota1", "DESCRI", "1")
+                    var anotacao = Anotacao(1, "Nota1", "DESCRI", "2021-03-05")
                     anotacaoDao.insert(anotacao)
-                    anotacao = Anotacao(2, "Nota2", "DESCRI2", "2")
+                    anotacao = Anotacao(2, "Nota2", "DESCRI2", "2021-03-06")
                     anotacaoDao.insert(anotacao)
                 }
             }
@@ -45,6 +45,7 @@ public abstract class AnotacaoDB : RoomDatabase() {
             }
             synchronized(this) {
                 val instance = Room.databaseBuilder(context.applicationContext, AnotacaoDB::class.java, "anotacoes_database")
+                    .fallbackToDestructiveMigration()
                     .addCallback(AnotacaoDatabaseCallback(scope))
                     .build()
 

@@ -21,7 +21,10 @@ interface AnotacaoDao {
     fun getOrderedAnotacoesTitle(): LiveData<List<Anotacao>>
 
     @Query("SELECT * FROM Anotacao WHERE titulo == :titulo")
-    fun getAnotacaoesFromTitulo(titulo: String): LiveData<List<Anotacao>>
+    fun getAnotacaoesFromTitulo(titulo: String): LiveData<Anotacao>
+
+    @Query("SELECT * FROM Anotacao ORDER BY atualizada DESC LIMIT 1")
+    fun getLastAtualizada(): LiveData<List<Anotacao>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(anotacao: Anotacao)
