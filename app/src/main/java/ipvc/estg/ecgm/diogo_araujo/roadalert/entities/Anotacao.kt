@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 
 class Anotacao (
     @PrimaryKey(autoGenerate = true) val id: Int? = null,
-    @ColumnInfo(name = "titulo") val titulo: String?,
-    @ColumnInfo(name = "descricao") val descricao: String,
+    @ColumnInfo(name = "titulo") val titulo: String,
+    @ColumnInfo(name = "descricao") val descricao: String?,
     @ColumnInfo(name = "atualizada") val atualizada: String?
 )

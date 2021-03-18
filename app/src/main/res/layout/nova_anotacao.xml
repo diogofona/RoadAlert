@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/TopBar">
+
+            <ImageView
+                android:id="@+id/nova_anotacao_back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_back"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/MyOrangeO"
+                android:text="voltar"
+                android:textSize="8pt"
+                android:textStyle="bold"
+                android:layout_toEndOf="@id/nova_anotacao_back"
+                android:layout_marginTop="36dp"/>
+
+            <TextView
+                android:id="@+id/label_listagem_anotacoes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="10pt"
+                android:textStyle="bold"
+                android:layout_below="@id/nova_anotacao_back"
+                android:layout_marginTop="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/MyBrown"
+                android:text="Nova Anotação"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            app:layout_constraintTop_toBottomOf="@id/TopBar">
+
+            <TextView
+                android:id="@+id/label_titulo_anotacao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10pt"
+                android:textColor="@color/MyOrangeB"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="40dp"
+                android:text="Título"/>
+
+            <EditText
+                android:id="@+id/anotacao_titulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Título..."
+                android:textSize="8pt"
+                android:textColor="@color/MyBrown"
+                android:layout_below="@id/label_titulo_anotacao"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp" />
+
+            <TextView
+                android:id="@+id/label_desc_anotacao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10pt"
+                android:layout_below="@id/anotacao_titulo"
+                android:textColor="@color/MyOrangeB"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="40dp"
+                android:text="Descrição"/>
+
+            <EditText
+                android:id="@+id/anotacao_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Descrição..."
+                android:textSize="8pt"
+                android:textColor="@color/MyBrown"
+                android:layout_below="@id/label_desc_anotacao"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp" />
+
+            <Button
+                android:id="@+id/btn_save_new_anotacao"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textAllCaps="false"
+                android:textColor="@color/MyWhite"
+                android:backgroundTint="@color/MyOrangeB"
+                android:layout_below="@id/anotacao_desc"
+                android:gravity="center"
+                android:textSize="8pt"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginTop="50dp"
+                android:text="Guardar"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
