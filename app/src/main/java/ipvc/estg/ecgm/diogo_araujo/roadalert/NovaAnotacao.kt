@@ -32,10 +32,9 @@ class NovaAnotacao : AppCompatActivity() {
                 replyIntent.putExtra(EXTRA_TITULO, AT)
                 val AD = descricao.text.toString()
                 replyIntent.putExtra(EXTRA_DESC, AD)
-                val AA = LocalDateTime.now()
-                replyIntent.putExtra(EXTRA_DESC, AA)
+                val AA = LocalDateTime.now().toString()
+                replyIntent.putExtra(EXTRA_ATUALIZADA, AA)
                 //Toast.makeText(this, AA.toString(), Toast.LENGTH_LONG).show()
-
                 setResult(Activity.RESULT_OK, replyIntent)
             }
             finish()
@@ -43,8 +42,8 @@ class NovaAnotacao : AppCompatActivity() {
     }
 
     companion object {
-        const val EXTRA_TITULO = ""
-        const val EXTRA_DESC = ""
-        const val EXTRA_ATUALIZADA = ""
+        const val EXTRA_TITULO = "TITULON"
+        const val EXTRA_DESC = "DESCN"
+        const val EXTRA_ATUALIZADA = "ATUALIZADAN"
     }
 }

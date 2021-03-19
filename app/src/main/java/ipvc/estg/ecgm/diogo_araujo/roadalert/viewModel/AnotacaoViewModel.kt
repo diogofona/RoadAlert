@@ -26,4 +26,12 @@ class AnotacaoViewModel(application: Application) : AndroidViewModel(application
     fun insert(anotacao: Anotacao) = viewModelScope.launch(Dispatchers.IO){
         repository.insert(anotacao)
     }
+
+    fun update(id: Int, titulo: String, descricao: String, atualizada: String) = viewModelScope.launch(Dispatchers.IO){
+        repository.update(id, titulo, descricao, atualizada)
+    }
+
+    fun delete(id: Int) = viewModelScope.launch(Dispatchers.IO){
+        repository.delete(id)
+    }
 }
