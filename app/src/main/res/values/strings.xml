@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">RoadAlert</string>
+    <string name="erro_sem_alteracao_anotacao">Anotação não alterada</string>
+    <string name="erro_vazio">Os campos obrigatórios não podem estar vazios</string>
 </resources>
