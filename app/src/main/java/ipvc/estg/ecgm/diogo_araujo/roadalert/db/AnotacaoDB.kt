@@ -10,7 +10,7 @@ import ipvc.estg.ecgm.diogo_araujo.roadalert.entities.Anotacao
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Database(entities = arrayOf(Anotacao::class), version = 3, exportSchema = false)
+@Database(entities = arrayOf(Anotacao::class), version = 4, exportSchema = false)
 public abstract class AnotacaoDB : RoomDatabase() {
 
     abstract fun anotacaoDao(): AnotacaoDao
@@ -23,9 +23,9 @@ public abstract class AnotacaoDB : RoomDatabase() {
                     var anotacaoDao = databse.anotacaoDao()
 
                     //add sample
-                    var anotacao = Anotacao(1, "Nota1", "DESCRI", "2021-03-05")
+                    var anotacao = Anotacao(1, "Nota1", "DESCRI", "2021-03-05T10:20:10")
                     anotacaoDao.insert(anotacao)
-                    anotacao = Anotacao(2, "Nota2", "DESCRI2", "2021-03-06")
+                    anotacao = Anotacao(2, "Nota2", "DESCRI2", "2021-03-06T21:11:30")
                     anotacaoDao.insert(anotacao)
                 }
             }

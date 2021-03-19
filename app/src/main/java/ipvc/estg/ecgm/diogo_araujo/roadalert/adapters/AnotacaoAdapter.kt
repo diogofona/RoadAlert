@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import ipvc.estg.ecgm.diogo_araujo.roadalert.CellClickListener
 import ipvc.estg.ecgm.diogo_araujo.roadalert.EditarAnotacao
@@ -13,6 +14,10 @@ import ipvc.estg.ecgm.diogo_araujo.roadalert.R
 import ipvc.estg.ecgm.diogo_araujo.roadalert.entities.Anotacao
 import ipvc.estg.ecgm.diogo_araujo.roadalert.viewModel.AnotacaoViewModel
 import kotlinx.android.synthetic.main.recyclerview_item.view.*
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.Period
+import java.time.format.DateTimeFormatter
 
 class AnotacaoAdapter internal constructor(
     context: Context, private val cellClickListener: CellClickListener
@@ -39,7 +44,15 @@ class AnotacaoAdapter internal constructor(
         val current = anotacoes[position]
         holder.anotacaoTitulo.text = current.titulo
         holder.anotacaoDescricao.text = current.descricao
-        holder.anotacaoAtualizada.text = current.atualizada.toString()
+        //holder.anotacaoAtualizada.text = current.atualizada
+        val strs = current.atualizada?.split("T")!!.toTypedArray()
+        if(strs.size > 1) {
+            val stt = strs[0]?.split("-")!!.toTypedArray()
+            //val Rnow = LocalDateTime.now().toString()
+                //val strsRN = Rnow?.split("T")!!.toTypedArray()
+                //val sttRN = strs[1]?.split(":")!!.toTypedArray()
+            holder.anotacaoAtualizada.text = stt[2]+"-"+stt[1]+"-"+stt[0]
+        }
 
         holder.itemView.setOnClickListener{
             cellClickListener.onCellClickListener(current)

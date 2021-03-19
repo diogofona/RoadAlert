@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity(), CellClickListener {
     private val newAnotacaoActivityCode = 1
     private val editAnotacaoActivityCode = 2
     private lateinit var database: AnotacaoRepository
+    private val Mrecente = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,7 +61,7 @@ class MainActivity : AppCompatActivity(), CellClickListener {
         override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
             if(requestCode == newAnotacaoActivityCode) {
-                if (requestCode == newAnotacaoActivityCode && resultCode == Activity.RESULT_OK) {
+                if (resultCode == Activity.RESULT_OK) {
                     val titulo = data?.getStringExtra(NovaAnotacao.EXTRA_TITULO).toString()
                     val descricao = data?.getStringExtra(NovaAnotacao.EXTRA_DESC).toString()
                     val atualizada = data?.getStringExtra(NovaAnotacao.EXTRA_ATUALIZADA).toString()
@@ -70,12 +71,12 @@ class MainActivity : AppCompatActivity(), CellClickListener {
                 } else {
                     Toast.makeText(
                         applicationContext,
-                        "Titulo vazio: não inserido",
+                        data?.getStringExtra(NovaAnotacao.EXTRA_ERRO).toString(),
                         Toast.LENGTH_LONG
                     ).show()
                 }
             } else if(requestCode == editAnotacaoActivityCode) {
-                if(requestCode == editAnotacaoActivityCode && resultCode == Activity.RESULT_OK){
+                if(resultCode == Activity.RESULT_OK){
                     if(data?.action == "DELETE"){
                         val id = data?.getStringExtra(EXTRA_ID).toString()
                         anotacaoViewModel.delete(Integer.parseInt(id))
@@ -87,7 +88,9 @@ class MainActivity : AppCompatActivity(), CellClickListener {
                         anotacaoViewModel.update(Integer.parseInt(id), titulo, descricao, atualizada)
                     }
                 } else {
-                    Toast.makeText(applicationContext, "Titulo vazio: não inserido", Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext,
+                        data?.getStringExtra(EXTRA_ERRO).toString(),
+                        Toast.LENGTH_LONG).show()
                 }
             }
         }
@@ -113,5 +116,6 @@ class MainActivity : AppCompatActivity(), CellClickListener {
         const val EXTRA_TITULO = "TITULO"
         const val EXTRA_DESCRICAO = "DESCRICAO"
         const val EXTRA_ATUALIZADA = "ATUALIZADA"
+        const val EXTRA_ERRO = "ERRO"
     }
 }

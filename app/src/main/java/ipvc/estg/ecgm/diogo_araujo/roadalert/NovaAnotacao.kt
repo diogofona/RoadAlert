@@ -26,8 +26,9 @@ class NovaAnotacao : AppCompatActivity() {
         button.setOnClickListener{
             val replyIntent = Intent()
             if(TextUtils.isEmpty(titulo.text)){
+                replyIntent.putExtra(MainActivity.EXTRA_ERRO, getString(R.string.erro_vazio))
                setResult(Activity.RESULT_CANCELED, replyIntent)
-            }else {
+            } else {
                 val AT = titulo.text.toString()
                 replyIntent.putExtra(EXTRA_TITULO, AT)
                 val AD = descricao.text.toString()
@@ -45,5 +46,6 @@ class NovaAnotacao : AppCompatActivity() {
         const val EXTRA_TITULO = "TITULON"
         const val EXTRA_DESC = "DESCN"
         const val EXTRA_ATUALIZADA = "ATUALIZADAN"
+        const val EXTRA_ERRO = "ERRON"
     }
 }
