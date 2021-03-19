@@ -30,7 +30,10 @@ interface AnotacaoDao {
     suspend fun insert(anotacao: Anotacao)
 
     @Query("DELETE FROM Anotacao WHERE id == :id")
-    fun deleteAnotacao(id: Int)
+    fun delete(id: Int)
+
+    @Query("UPDATE Anotacao SET titulo = :titulo, descricao = :descricao, atualizada = :atualizada WHERE id == :id")
+    fun update(id: Int, titulo: String, descricao: String, atualizada: String)
 
     @Query("DELETE FROM Anotacao")
     fun deleteAll()

@@ -59,36 +59,59 @@ class MainActivity : AppCompatActivity(), CellClickListener {
 
         override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == newAnotacaoActivityCode && resultCode == Activity.RESULT_OK){
-            var titulo = data?.getStringExtra(NovaAnotacao.EXTRA_TITULO).toString()
-            var descricao = data?.getStringExtra(NovaAnotacao.EXTRA_DESC).toString()
-            var atualizada = data?.getStringExtra(NovaAnotacao.EXTRA_ATUALIZADA).toString()
-            val anotacao = Anotacao(titulo = titulo, descricao = descricao, atualizada = atualizada)
-            anotacaoViewModel.insert(anotacao)
-        } else {
-            Toast.makeText(applicationContext, "Titulo vazio: não inserido", Toast.LENGTH_LONG).show()
+            if(requestCode == newAnotacaoActivityCode) {
+                if (requestCode == newAnotacaoActivityCode && resultCode == Activity.RESULT_OK) {
+                    val titulo = data?.getStringExtra(NovaAnotacao.EXTRA_TITULO).toString()
+                    val descricao = data?.getStringExtra(NovaAnotacao.EXTRA_DESC).toString()
+                    val atualizada = data?.getStringExtra(NovaAnotacao.EXTRA_ATUALIZADA).toString()
+                    val anotacao =
+                        Anotacao(titulo = titulo, descricao = descricao, atualizada = atualizada)
+                    anotacaoViewModel.insert(anotacao)
+                } else {
+                    Toast.makeText(
+                        applicationContext,
+                        "Titulo vazio: não inserido",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            } else if(requestCode == editAnotacaoActivityCode) {
+                if(requestCode == editAnotacaoActivityCode && resultCode == Activity.RESULT_OK){
+                    if(data?.action == "DELETE"){
+                        val id = data?.getStringExtra(EXTRA_ID).toString()
+                        anotacaoViewModel.delete(Integer.parseInt(id))
+                    } else {
+                        val id = data?.getStringExtra(EXTRA_ID).toString()
+                        val titulo = data?.getStringExtra(EXTRA_TITULO).toString()
+                        val descricao = data?.getStringExtra(EXTRA_DESCRICAO).toString()
+                        val atualizada = data?.getStringExtra(EXTRA_ATUALIZADA).toString()
+                        anotacaoViewModel.update(Integer.parseInt(id), titulo, descricao, atualizada)
+                    }
+                } else {
+                    Toast.makeText(applicationContext, "Titulo vazio: não inserido", Toast.LENGTH_LONG).show()
+                }
+            }
         }
-    }
 
-    override fun onCellClickListener(data: Anotacao){
+    override fun onCellClickListener(anotacao: Anotacao){
         //Toast.makeText(this,"${data.id}", Toast.LENGTH_LONG).show()
-        val id = data.id
-        val titulo = data.titulo
-        val descricao = data.descricao
-        val atualizada = data.atualizada
-        val intent = Intent(this@MainActivity, EditarAnotacao::class.java).apply {
-            putExtra(EXTRA_ID, id);
-            putExtra(EXTRA_TITULO, titulo);
-            putExtra(EXTRA_DESCRICAO, descricao);
-            putExtra(EXTRA_ATUALIZADA, atualizada);
+        val id = anotacao.id.toString()
+        val titulo = anotacao.titulo
+        val descricao = anotacao.descricao
+        val atualizada = anotacao.atualizada
+        val intent = Intent(this, EditarAnotacao::class.java).apply {
+            putExtra(EXTRA_ID, id)
+            putExtra(EXTRA_TITULO, titulo)
+            putExtra(EXTRA_DESCRICAO, descricao)
+            putExtra(EXTRA_ATUALIZADA, atualizada)
         }
+        //Toast.makeText(this,""+id+" "+titulo, Toast.LENGTH_LONG).show()
         startActivityForResult(intent, editAnotacaoActivityCode)
     }
 
     companion object {
-        const val EXTRA_ID = ""
-        const val EXTRA_TITULO = ""
-        const val EXTRA_DESCRICAO = ""
-        const val EXTRA_ATUALIZADA = ""
+        const val EXTRA_ID = "ID"
+        const val EXTRA_TITULO = "TITULO"
+        const val EXTRA_DESCRICAO = "DESCRICAO"
+        const val EXTRA_ATUALIZADA = "ATUALIZADA"
     }
 }
