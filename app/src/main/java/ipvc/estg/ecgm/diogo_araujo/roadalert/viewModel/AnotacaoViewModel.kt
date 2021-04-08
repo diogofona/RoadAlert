@@ -15,6 +15,7 @@ class AnotacaoViewModel(application: Application) : AndroidViewModel(application
     private val repository: AnotacaoRepository
     val allAnotacao: LiveData<List<Anotacao>>
     val lastAtualizada: LiveData<List<Anotacao>>
+    //lateinit var AnotacaoFromTitulo: LiveData<List<Anotacao>>
 
     init {
         val anotacoesDao = AnotacaoDB.getDatabase(application, viewModelScope).anotacaoDao()
@@ -34,4 +35,8 @@ class AnotacaoViewModel(application: Application) : AndroidViewModel(application
     fun delete(id: Int) = viewModelScope.launch(Dispatchers.IO){
         repository.delete(id)
     }
+
+    /*fun callAnotacaoFromTitulo(titulo: String) = viewModelScope.launch(Dispatchers.IO){
+        repository.callAnotacaoFromTitulo(titulo)
+    }*/
 }

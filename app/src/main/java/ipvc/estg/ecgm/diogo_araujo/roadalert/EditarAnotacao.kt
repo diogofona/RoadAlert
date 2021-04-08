@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import java.time.LocalDateTime
 
 class EditarAnotacao : AppCompatActivity() {
@@ -17,7 +18,7 @@ class EditarAnotacao : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.edit_anotacao)
-        Toast.makeText(this, intent.getStringExtra(MainActivity.EXTRA_ID), Toast.LENGTH_LONG).show()
+        //Toast.makeText(this, intent.getStringExtra(MainActivity.EXTRA_ID), Toast.LENGTH_LONG).show()
         val id = intent.getStringExtra(MainActivity.EXTRA_ID)
         val titulo = intent.getStringExtra(MainActivity.EXTRA_TITULO)
         val descricao = intent.getStringExtra(MainActivity.EXTRA_DESCRICAO)
@@ -63,11 +64,24 @@ class EditarAnotacao : AppCompatActivity() {
         //Botao delete
         val bt_eleminar = findViewById<ImageView>(R.id.eliminar_anotacao)
         bt_eleminar.setOnClickListener{
-            val replyIntent = Intent()
-            replyIntent.putExtra(MainActivity.EXTRA_ID, id.toString())
-            replyIntent.setAction("DELETE")
-            setResult(Activity.RESULT_OK, replyIntent)
-            finish()
+            val rt_conf = findViewById<RelativeLayout>(R.id.rt_conf)
+            rt_conf.isVisible = true
+
+            val bt_sim = findViewById<Button>(R.id.btn_conf_sim)
+            bt_sim.setOnClickListener {
+                val replyIntent = Intent()
+                replyIntent.putExtra(MainActivity.EXTRA_ID, id.toString())
+                replyIntent.setAction("DELETE")
+                setResult(Activity.RESULT_OK, replyIntent)
+                rt_conf.isVisible = false
+                finish()
+            }
+
+            val bt_nao = findViewById<Button>(R.id.btn_conf_nao)
+            bt_nao.setOnClickListener {
+                rt_conf.isVisible = false
+            }
+
         }
     }
 
