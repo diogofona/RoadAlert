@@ -26,7 +26,7 @@ class NovaAnotacao : AppCompatActivity() {
         button.setOnClickListener{
             val replyIntent = Intent()
             if(TextUtils.isEmpty(titulo.text)){
-                replyIntent.putExtra(MainActivity.EXTRA_ERRO, getString(R.string.erro_vazio))
+                replyIntent.putExtra(EXTRA_ERRO, getString(R.string.erro_vazio))
                setResult(Activity.RESULT_CANCELED, replyIntent)
             } else {
                 val AT = titulo.text.toString()

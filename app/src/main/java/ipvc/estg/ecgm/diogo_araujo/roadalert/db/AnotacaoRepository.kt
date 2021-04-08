@@ -10,17 +10,24 @@ import kotlinx.coroutines.launch
 class AnotacaoRepository(private val anotacaoDao: AnotacaoDao) {
 
     val allAnotacao: LiveData<List<Anotacao>> = anotacaoDao.getAutoOrderedAnotacoes()
+    val allAnotacaoInverted: LiveData<List<Anotacao>> = anotacaoDao.getAutoOrderedAnotacoesInverted()
     val lastAtualizada: LiveData<List<Anotacao>> = anotacaoDao.getLastAtualizada()
+    //lateinit var AnotacaoFromTitulo: LiveData<List<Anotacao>>
 
     suspend fun insert(anotacao: Anotacao){
         anotacaoDao.insert(anotacao)
     }
 
-    suspend fun update(id: Int, titulo: String, descricao: String, atualizada: String){
+    fun update(id: Int, titulo: String, descricao: String, atualizada: String){
         anotacaoDao.update(id, titulo, descricao, atualizada)
     }
 
-    suspend fun delete(id: Int){
+    fun delete(id: Int){
         anotacaoDao.delete(id)
     }
+
+    /*fun callAnotacaoFromTitulo(titulo: String){
+        AnotacaoFromTitulo = anotacaoDao.getAnotacaoesFromTitulo(titulo)
+    }*/
+
 }
