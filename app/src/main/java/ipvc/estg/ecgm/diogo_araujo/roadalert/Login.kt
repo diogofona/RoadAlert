@@ -1,9 +1,11 @@
 package ipvc.estg.ecgm.diogo_araujo.roadalert
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import ipvc.estg.ecgm.diogo_araujo.roadalert.api.EndPoints
@@ -28,7 +30,6 @@ class Login : AppCompatActivity() {
 
         val button = findViewById<Button>(R.id.btn_login)
         button.setOnClickListener{
-            //Toast.makeText(this@Login, "CLICCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCL", Toast.LENGTH_SHORT).show()
             val username = ET_username.text.toString()
             val password = ET_password.text.toString()
 
@@ -39,17 +40,21 @@ class Login : AppCompatActivity() {
                 override fun onResponse(call: Call<OutputPost>, response: Response<OutputPost>) {
                     Toast.makeText(this@Login, response.toString(), Toast.LENGTH_SHORT).show()
                     if(response.isSuccessful){
-                        //Toast.makeText(this@Login, "inside SUCC", Toast.LENGTH_SHORT).show()
                         val u: OutputPost = response.body()!!
-                        Toast.makeText(this@Login, u.name + "///" + u.email, Toast.LENGTH_LONG).show()
+                        Toast.makeText(this@Login, "Autenticação sucedida", Toast.LENGTH_LONG).show()
                     }
                 }
 
                 override fun onFailure(call: Call<OutputPost>, t: Throwable) {
-                    Toast.makeText(this@Login, "ERRO!", Toast.LENGTH_SHORT).show()
-                    //To change body of created functions use File | Settings | File Templates.
+                    Toast.makeText(this@Login, "Erro ao tentar efectuar a autenticação", Toast.LENGTH_SHORT).show()
                 }
             })
+        }
+
+        val buttonreg = findViewById<TextView>(R.id.registar)
+        buttonreg.setOnClickListener{
+            val intent = Intent(this@Login, Registar::class.java)
+            startActivity(intent)
         }
     }
 
