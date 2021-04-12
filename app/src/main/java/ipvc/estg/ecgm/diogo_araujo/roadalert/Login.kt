@@ -93,7 +93,7 @@ class Login : AppCompatActivity() {
                     }
                 })
             }else{
-                Toast.makeText(this@Login, "Os dados não estão corretamente preenchidos.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@Login, "Os dados não estão corretamente preenchidos", Toast.LENGTH_SHORT).show()
             }
         }
 
