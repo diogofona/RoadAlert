@@ -10,4 +10,8 @@ interface EndPoints {
     @FormUrlEncoded
     @POST("/myslim/users/login")
     fun login(@Field("username") username: String?, @Field("password") password: String?): Call<OutputPost>
+
+    @FormUrlEncoded
+    @POST("/myslim/users/regist")
+    fun regist(@Field("username") username: String?, @Field("name") name: String?, @Field("email") email: String?, @Field("password") password: String?): Call<OutputPostRegist>
 }

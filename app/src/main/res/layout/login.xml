@@ -11,7 +11,7 @@
         android:id="@+id/TopBar">
 
         <ImageView
-            android:id="@+id/menu_anotacao"
+            android:id="@+id/menu_login"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:adjustViewBounds="true"
@@ -94,10 +94,20 @@
                 android:layout_marginTop="0dp"
                 android:layout_below="@+id/label_password"/>
 
+            <CheckBox
+                android:id="@+id/checkRemember"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lembrar"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="40dp"
+                android:layout_below="@id/ET_password"
+                android:textColor="@color/MyBrown"/>
+
             <Button
                 android:id="@+id/btn_login"
-                android:layout_below="@id/ET_password"
-                android:layout_marginTop="50dp"
+                android:layout_below="@id/checkRemember"
+                android:layout_marginTop="20dp"
                 android:text="Iniciar Sessão"
                 android:textSize="7pt"
                 android:textColor="@color/MyWhite"
