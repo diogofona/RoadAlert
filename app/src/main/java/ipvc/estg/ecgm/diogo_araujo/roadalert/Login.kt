@@ -87,7 +87,7 @@ class Login : AppCompatActivity() {
                     override fun onFailure(call: Call<OutputPost>, t: Throwable) {
                         Toast.makeText(
                             this@Login,
-                            "Erro ao tentar efectuar a autenticação",
+                            "Erro ao tentar efectuar a autenticação.",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
