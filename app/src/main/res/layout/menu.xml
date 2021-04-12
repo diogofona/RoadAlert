@@ -5,25 +5,126 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
+        android:id="@+id/head"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:orientation="vertical"
-        android:background="@drawable/logo">
+        android:orientation="vertical">
+
+        <View
+            android:alpha="0.5"
+            android:layout_width="match_parent"
+            android:background="@color/MyOrangeO"
+            android:layout_height="200dp"/>
+
+        <ImageView
+            android:id="@+id/backGimage"
+            android:alpha="0.4"
+            android:layout_width="match_parent"
+            android:background="@drawable/logo"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="30dp"
+            android:layout_height="200dp"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_image"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginTop="20dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="30dp"
             app:civ_circle_background_color="@color/MyWhite"
             android:src="@drawable/ic_person"
             app:civ_border_width="0dp"
             app:civ_border_color="@color/MyOrangeB"/>
 
+        <TextView
+            android:id="@+id/label_name"
+            android:text=" "
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="30dp"
+            android:textStyle="bold"
+            android:textSize="7pt"
+            android:layout_below="@id/profile_image"
+            android:textColor="@color/MyWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
+        <TextView
+            android:id="@+id/label_email"
+            android:text=" "
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="30dp"
+            android:textStyle="bold"
+            android:textSize="7pt"
+            android:layout_below="@id/label_name"
+            android:textColor="@color/MyWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RelativeLayout
+            android:id="@+id/body"
+            android:layout_below="@id/backGimage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btn_AP"
+                android:text="Anotações Privadas"
+                android:layout_width="match_parent"
+                android:backgroundTint="@color/MyWhite"
+                android:layout_height="80dp"/>
+
+            <Button
+                android:id="@+id/btn_SP"
+                android:layout_below="@id/btn_AP"
+                android:text="Situações Públicas"
+                android:layout_width="match_parent"
+                android:backgroundTint="@color/MyWhite"
+                android:layout_height="80dp"/>
+
+            <Button
+                android:id="@+id/btn_LG"
+                android:layout_below="@id/btn_SP"
+                android:text="Autenticação"
+                android:layout_width="match_parent"
+                android:backgroundTint="@color/MyWhite"
+                android:layout_height="80dp"/>
+
+            <TextView
+                android:id="@+id/btn_TS"
+                android:text="Terminar Sessão"
+                android:textColor="@color/MyOrangeB"
+                android:layout_alignTop="@id/btn_blank"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_marginBottom="50dp"
+                android:backgroundTint="@color/MyWhite"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/btn_TS2"
+                android:text="______________"
+                android:textColor="@color/MyOrangeB"
+                android:layout_width="match_parent"
+                android:layout_marginTop="-65dp"
+                android:gravity="center"
+                android:layout_below="@id/btn_TS"
+                android:backgroundTint="@color/MyWhite"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/btn_blank"
+                android:text=""
+                android:textColor="@color/MyOrangeB"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_marginBottom="50dp"
+                android:backgroundTint="@color/MyWhite"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
 
     </RelativeLayout>
 

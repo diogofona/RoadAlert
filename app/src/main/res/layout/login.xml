@@ -11,7 +11,7 @@
         android:id="@+id/TopBar">
 
         <ImageView
-            android:id="@+id/menu_anotacao"
+            android:id="@+id/menu_login"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:adjustViewBounds="true"
@@ -26,8 +26,7 @@
             android:layout_height="wrap_content"
             android:textSize="10pt"
             android:textStyle="bold"
-            android:layout_below="@id/menu_anotacao"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="40dp"
             android:textAlignment="center"
             android:textColor="@color/MyBrown"
             android:text="Autenticação"/>
@@ -53,6 +52,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
                 android:textStyle="bold"
+                android:textSize="7pt"
                 android:textColor="@color/MyOrangeB"
                 android:layout_below="@id/logo"
                 android:layout_width="wrap_content"
@@ -61,9 +61,10 @@
             <EditText
                 android:id="@+id/ET_username"
                 android:hint="username"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
+                android:textSize="7pt"
                 android:textColor="@color/MyBrown"
                 android:layout_below="@id/label_username"
                 android:layout_width="match_parent"
@@ -75,6 +76,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
                 android:textStyle="bold"
+                android:textSize="7pt"
                 android:layout_below="@id/ET_username"
                 android:textColor="@color/MyOrangeB"
                 android:layout_width="wrap_content"
@@ -85,17 +87,29 @@
                 android:hint="password"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
+                android:textSize="7pt"
                 android:textColor="@color/MyBrown"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="0dp"
                 android:layout_below="@+id/label_password"/>
+
+            <CheckBox
+                android:id="@+id/checkRemember"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lembrar"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="40dp"
+                android:layout_below="@id/ET_password"
+                android:textColor="@color/MyBrown"/>
 
             <Button
                 android:id="@+id/btn_login"
-                android:layout_below="@id/ET_password"
-                android:layout_marginTop="50dp"
+                android:layout_below="@id/checkRemember"
+                android:layout_marginTop="20dp"
                 android:text="Iniciar Sessão"
+                android:textSize="7pt"
                 android:textColor="@color/MyWhite"
                 android:textStyle="bold"
                 android:backgroundTint="@color/MyOrangeB"
@@ -108,15 +122,25 @@
                 android:id="@+id/registar"
                 android:text="Registar"
                 android:textColor="@color/MyOrangeO"
+                android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
+                android:textSize="7pt"
                 android:layout_below="@id/btn_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="________"
+                android:textColor="@color/MyOrangeO"
+                android:layout_marginTop="-20dp"
+                android:layout_centerHorizontal="true"
+                android:textSize="7pt"
+                android:layout_below="@id/registar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
         </RelativeLayout>
 
     </RelativeLayout>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
