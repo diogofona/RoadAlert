@@ -249,4 +249,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoWi
             }
         })
     }
+
+    //next
 }
