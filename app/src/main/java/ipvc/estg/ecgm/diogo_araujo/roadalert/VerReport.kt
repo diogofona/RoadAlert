@@ -33,6 +33,7 @@ class VerReport: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.see_report)
 
+        //next
         report_titulo = findViewById(R.id.report_titulo)
         report_desc = findViewById(R.id.report_desc)
         report_img = findViewById(R.id.report_img)
