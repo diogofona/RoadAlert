@@ -251,4 +251,5 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoWi
     }
 
     //next
+    //next1
 }

@@ -11,6 +11,7 @@ import java.time.LocalDateTime
 
 class EditarAnotacao : AppCompatActivity() {
 
+    //next1
     private lateinit var titulo_ET: EditText
     private lateinit var descricao_ET: EditText
     private lateinit var atualizada_TV: TextView
