@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +16,9 @@ class Menu : AppCompatActivity() {
     private lateinit var Name: TextView
     private lateinit var Email: TextView
     private var DataRemembered: Int = 0
+    private lateinit var Ausername: String
+    private lateinit var Aname: String
+    private lateinit var Aemail: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,17 +35,18 @@ class Menu : AppCompatActivity() {
 
         if(preferences.getString("username", "") != "") {
             val username = preferences.getString("username", "")
+            //Ausername = username.toString()
             val name = preferences.getString("name", "")
             val email = preferences.getString("email", "")
             Name.setText(name)
             Email.setText(email)
             DataRemembered = 2
         }else if(intent.getStringExtra("username") != ""){
-            val username = intent.getStringExtra("username")
-            val name = intent.getStringExtra("name")
-            val email = intent.getStringExtra("email")
-            Name.setText(name)
-            Email.setText(email)
+            Ausername = intent.getStringExtra("username").toString()
+            Aname = intent.getStringExtra("name").toString()
+            Aemail = intent.getStringExtra("email").toString()
+            Name.setText(Aname)
+            Email.setText(Aemail)
             DataRemembered = 1
         }else{
             Name.setText("")
@@ -60,6 +65,28 @@ class Menu : AppCompatActivity() {
 
         SP.setOnClickListener{
             val intent = Intent(this@Menu, MapsActivity::class.java)
+            if(DataRemembered == 1) {
+                intent.putExtra("username", Ausername);
+                intent.putExtra("name", Aname);
+                intent.putExtra("email", Aemail);
+            }
+            startActivity(intent)
+            finish()
+        }
+
+        AP.setOnClickListener{
+            val intent = Intent(this@Menu, MainActivity::class.java)
+            if(DataRemembered == 1) {
+                intent.putExtra("username", Ausername);
+                intent.putExtra("name", Aname);
+                intent.putExtra("email", Aemail);
+            }
+            startActivity(intent)
+            finish()
+        }
+
+        LG.setOnClickListener{
+            val intent = Intent(this@Menu, Login::class.java)
             startActivity(intent)
             finish()
         }

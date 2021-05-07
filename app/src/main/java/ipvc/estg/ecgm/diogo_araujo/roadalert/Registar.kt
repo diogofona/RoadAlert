@@ -53,6 +53,7 @@ class Registar : AppCompatActivity() {
                                     Toast.makeText(this@Registar, "Registo sucedido", Toast.LENGTH_LONG).show()
                                     val intent = Intent(this@Registar, Login::class.java)
                                     startActivity(intent)
+                                    finish()
                                 }else{
                                     if(u.erro == "DuplicatedUsername"){
                                         Toast.makeText(this@Registar, "Este utilizador já existe", Toast.LENGTH_LONG).show()
@@ -85,6 +86,7 @@ class Registar : AppCompatActivity() {
         voltar.setOnClickListener{
             val intent = Intent(this@Registar, Login::class.java)
             startActivity(intent)
+            finish()
         }
     }
 

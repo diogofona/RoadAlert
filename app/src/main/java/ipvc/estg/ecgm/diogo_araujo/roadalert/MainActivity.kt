@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
@@ -53,6 +54,13 @@ class MainActivity : AppCompatActivity(), CellClickListener {
         fab.setOnClickListener{
             val intent = Intent(this@MainActivity, NovaAnotacao::class.java)
             startActivityForResult(intent, newAnotacaoActivityCode)
+        }
+
+        val MA = findViewById<ImageView>(R.id.menu_anotacao)
+        MA.setOnClickListener{
+            val intent = Intent(this@MainActivity, Menu::class.java)
+            startActivity(intent)
+            finish()
         }
 
         //Toast.makeText(this ,AnotacaoAtualizada.text, Toast.LENGTH_SHORT).show()

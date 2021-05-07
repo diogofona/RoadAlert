@@ -45,6 +45,9 @@
         <activity android:name=".EditarAnotacao" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Registar" />
+        <activity android:name=".NovoReport" />
+        <activity android:name=".EditarReport" />
+        <activity android:name=".VerReport" />
     </application>
 
 </manifest>
