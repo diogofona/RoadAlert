@@ -89,7 +89,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoWi
         //initialize fusedLocationCliente
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
-        // FILTER
+        // FILTERR
         titleFilter = findViewById(R.id.search_titulo)
         if(titleFilter.text.toString() == "" || titleFilter.text.toString() == null) {
             Toast.makeText(this@MapsActivity, "TUDO", Toast.LENGTH_LONG).show()
