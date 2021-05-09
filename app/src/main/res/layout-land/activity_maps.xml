@@ -40,17 +40,14 @@
         android:id="@+id/btn_search_titulo"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:text="@string/procurar"
-        android:textSize="6pt"
-        android:textColor="@color/MyBrown"
         android:layout_below="@id/search_titulo"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="-5dp"
-        android:layout_marginStart="160dp"
-        android:layout_marginEnd="80dp" />
+        android:layout_marginEnd="80dp"
+        android:text="@string/procurar"
+        android:textColor="@color/MyBrown"
+        android:textSize="6pt" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -66,5 +63,4 @@
             tools:context=".MapsActivity" />
 
     </RelativeLayout>
-    </ScrollView>
 </RelativeLayout>
