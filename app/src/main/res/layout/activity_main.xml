@@ -42,14 +42,14 @@
             android:layout_marginTop="10dp"
             android:textAlignment="center"
             android:textColor="@color/MyBrown"
-            android:text="Anotações Pessoais"/>
+            android:text="@string/titulo_AP"/>
 
         <EditText
             android:id="@+id/search_anotacao_titulo"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_below="@id/label_listagem_anotacoes"
-            android:hint="Título"
+            android:hint="@string/ser_titulo"
             android:background="@drawable/searchet"
             android:textAlignment="center"
             android:textSize="8pt"
@@ -67,7 +67,7 @@
             android:layout_marginEnd="50dp"
             android:layout_marginTop="25dp"
             android:layout_below="@id/label_listagem_anotacoes"
-            android:text="Mais Recente"/>
+            android:text="@string/ser_maisrecentes"/>
 
     </RelativeLayout>
 

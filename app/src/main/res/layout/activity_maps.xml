@@ -29,17 +29,29 @@
         android:id="@+id/search_titulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Título..."
+        android:hint="@string/ser_titulo"
         android:textSize="8pt"
         android:textColor="@color/MyBrown"
         android:layout_marginTop="30dp"
         android:layout_marginStart="80dp"
         android:layout_marginEnd="80dp" />
 
+    <Button
+        android:id="@+id/btn_search_titulo"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:text="@string/procurar"
+        android:textSize="6pt"
+        android:textColor="@color/MyBrown"
+        android:layout_below="@id/search_titulo"
+        android:layout_marginTop="-5dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginEnd="80dp" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="100dp">
+        android:layout_marginTop="110dp">
 
         <fragment xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:map="http://schemas.android.com/apk/res-auto"

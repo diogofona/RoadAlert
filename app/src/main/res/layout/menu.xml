@@ -70,7 +70,7 @@
 
             <Button
                 android:id="@+id/btn_AP"
-                android:text="Anotações Privadas"
+                android:text="@string/titulo_AP"
                 android:layout_width="match_parent"
                 android:backgroundTint="@color/MyWhite"
                 android:layout_height="80dp"/>
@@ -78,7 +78,7 @@
             <Button
                 android:id="@+id/btn_SP"
                 android:layout_below="@id/btn_AP"
-                android:text="Situações Públicas"
+                android:text="@string/titulo_SP"
                 android:layout_width="match_parent"
                 android:backgroundTint="@color/MyWhite"
                 android:layout_height="80dp"/>
@@ -86,14 +86,14 @@
             <Button
                 android:id="@+id/btn_LG"
                 android:layout_below="@id/btn_SP"
-                android:text="Autenticação"
+                android:text="@string/titulo_LG"
                 android:layout_width="match_parent"
                 android:backgroundTint="@color/MyWhite"
                 android:layout_height="80dp"/>
 
             <TextView
                 android:id="@+id/btn_TS"
-                android:text="Terminar Sessão"
+                android:text="@string/TS"
                 android:textColor="@color/MyOrangeB"
                 android:layout_alignTop="@id/btn_blank"
                 android:layout_width="match_parent"

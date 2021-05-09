@@ -29,7 +29,7 @@
             android:layout_marginTop="40dp"
             android:textAlignment="center"
             android:textColor="@color/MyBrown"
-            android:text="Autenticação"/>
+            android:text="@string/titulo_LG"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -48,7 +48,7 @@
 
             <TextView
                 android:id="@+id/label_username"
-                android:text="Utilizador:"
+                android:text="@string/campo_utilizador"
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
                 android:textStyle="bold"
@@ -60,7 +60,7 @@
 
             <EditText
                 android:id="@+id/ET_username"
-                android:hint="username"
+                android:hint="@string/campo_utilizador"
                 android:layout_marginTop="0dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
@@ -72,7 +72,7 @@
 
             <TextView
                 android:id="@+id/label_password"
-                android:text="Palavra-chave:"
+                android:text="@string/campo_password"
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
                 android:textStyle="bold"
@@ -84,7 +84,7 @@
 
             <EditText
                 android:id="@+id/ET_password"
-                android:hint="password"
+                android:hint="@string/campo_password"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:textSize="7pt"
@@ -98,7 +98,7 @@
                 android:id="@+id/checkRemember"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lembrar"
+                android:text="@string/lembrar"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="40dp"
                 android:layout_below="@id/ET_password"
@@ -108,7 +108,7 @@
                 android:id="@+id/btn_login"
                 android:layout_below="@id/checkRemember"
                 android:layout_marginTop="20dp"
-                android:text="Iniciar Sessão"
+                android:text="@string/iniciarsessao"
                 android:textSize="7pt"
                 android:textColor="@color/MyWhite"
                 android:textStyle="bold"
@@ -120,7 +120,7 @@
 
             <TextView
                 android:id="@+id/registar"
-                android:text="Registar"
+                android:text="@string/registar"
                 android:textColor="@color/MyOrangeO"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"

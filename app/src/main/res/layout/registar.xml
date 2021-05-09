@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/MyOrangeO"
-            android:text="voltar"
+            android:text="@string/voltar"
             android:textSize="8pt"
             android:textStyle="bold"
             android:layout_toEndOf="@id/nova_anotacao_back"
@@ -40,7 +40,7 @@
             android:layout_marginTop="40dp"
             android:textAlignment="center"
             android:textColor="@color/MyBrown"
-            android:text="Registar"/>
+            android:text="@string/registar"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -52,7 +52,7 @@
 
             <TextView
                 android:id="@+id/label_username"
-                android:text="Utilizador:"
+                android:text="@string/campo_utilizador"
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
                 android:textStyle="bold"
@@ -63,7 +63,7 @@
 
             <EditText
                 android:id="@+id/ET_username"
-                android:hint="username"
+                android:hint="@string/campo_utilizador"
                 android:layout_marginTop="0dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
@@ -75,7 +75,7 @@
 
             <TextView
                 android:id="@+id/label_name"
-                android:text="Nome:"
+                android:text="@string/campo_nome"
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
                 android:textStyle="bold"
@@ -87,7 +87,7 @@
 
             <EditText
                 android:id="@+id/ET_name"
-                android:hint="name"
+                android:hint="@string/campo_nome"
                 android:layout_marginTop="0dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
@@ -99,7 +99,7 @@
 
             <TextView
                 android:id="@+id/label_email"
-                android:text="E-mail:"
+                android:text="@string/campo_email"
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
                 android:textStyle="bold"
@@ -111,7 +111,7 @@
 
             <EditText
                 android:id="@+id/ET_email"
-                android:hint="email"
+                android:hint="@string/campo_email"
                 android:layout_marginTop="0dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
@@ -123,7 +123,7 @@
 
             <TextView
                 android:id="@+id/label_password"
-                android:text="Palavra-chave:"
+                android:text="@string/campo_password"
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
                 android:textStyle="bold"
@@ -135,7 +135,7 @@
 
             <EditText
                 android:id="@+id/ET_password"
-                android:hint="password"
+                android:hint="@string/campo_password"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:textSize="7pt"
@@ -147,7 +147,7 @@
 
             <TextView
                 android:id="@+id/label_password2"
-                android:text="Palavra-chave:"
+                android:text="@string/campo_password_rep"
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
                 android:textStyle="bold"
@@ -159,7 +159,7 @@
 
             <EditText
                 android:id="@+id/ET_password2"
-                android:hint="password"
+                android:hint="@string/campo_password"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:textSize="7pt"
@@ -173,7 +173,7 @@
                 android:id="@+id/btn_registar"
                 android:layout_below="@id/ET_password2"
                 android:layout_marginTop="50dp"
-                android:text="Registar"
+                android:text="@string/registar"
                 android:textSize="7pt"
                 android:textColor="@color/MyWhite"
                 android:textStyle="bold"

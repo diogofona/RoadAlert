@@ -2,5 +2,36 @@
     <string name="app_name">RoadAlert</string>
     <string name="erro_sem_alteracao_anotacao">Anotação não alterada</string>
     <string name="erro_vazio">Os campos obrigatórios não podem estar vazios</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_maps">Mapa</string>
+
+    <string name="guardar">Guardar</string>
+    <string name="voltar">Voltar</string>
+
+    <string name="titulo_AP">Anotações Privadas</string>
+    <string name="titulo_AP_nova">Nova Anotação</string>
+    <string name="titulo_AP_editar">Editar Anotação</string>
+    <string name="ser_titulo">Titulo</string>
+    <string name="ser_maisrecentes">Mais Recentes</string>
+    <string name="campo_titulo">Título</string>
+    <string name="campo_descricao">Descrição</string>
+
+    <string name="titulo_LG">Autenticação</string>
+    <string name="campo_utilizador">Utilizador</string>
+    <string name="campo_password">Palavra-chave</string>
+    <string name="campo_password_rep">Repetir Palavra-chave</string>
+    <string name="campo_nome">Nome</string>
+    <string name="campo_email">E-mail</string>
+    <string name="lembrar">Lembrar</string>
+    <string name="iniciarsessao">Iniciar Sessão</string>
+    <string name="registar">Registar</string>
+
+    <string name="procurar">Procurar</string>
+    <string name="campo_imagem">Imagem</string>
+    <string name="titulo_SP_nova">Nova Situação</string>
+    <string name="titulo_SP_editar">Editar Situação</string>
+    <string name="campo_la">Localização Atual</string>
+    <string name="titulo_SPU">Situação</string>
+    <string name="titulo_SP">Situações Públicas</string>
+    <string name="TS">Terminar Sessão</string>
+
 </resources>

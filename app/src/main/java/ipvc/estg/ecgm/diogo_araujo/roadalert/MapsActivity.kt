@@ -8,9 +8,12 @@ import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import androidx.core.widget.doAfterTextChanged
 import com.google.android.gms.location.*
 
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -41,8 +44,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoWi
     private lateinit var locationCallback: LocationCallback
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
+    private lateinit var titleFilter: EditText
+    private lateinit var titleFilterOld: String
+
     private lateinit var lat: String
     private lateinit var log: String
+
+    private var setset: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,50 +89,127 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoWi
         //initialize fusedLocationCliente
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
-        val request = ServiceBuilder.buildService(EndPoints::class.java)
-        val call = request.getReports()
-        var loc : LatLng
+        // FILTER
+        titleFilter = findViewById(R.id.search_titulo)
+        if(titleFilter.text.toString() == "" || titleFilter.text.toString() == null) {
+            Toast.makeText(this@MapsActivity, "TUDO", Toast.LENGTH_LONG).show()
+            val request = ServiceBuilder.buildService(EndPoints::class.java)
+            val call = request.getReports()
+            var loc: LatLng
 
-        // call service and markers
-        call.enqueue(object : Callback<List<OutputReports>> {
-            override fun onResponse(call: Call<List<OutputReports>>, response: Response<List<OutputReports>>) {
-                if(response.isSuccessful){
-                    reports = response.body()!!
-                    for(report in reports) {
-                        val coords = report.location!!.split(",")!!.toTypedArray()
-                        loc =
-                            LatLng(coords[0].toString().toDouble(), coords[1].toString().toDouble())
-                        if (username == report.username){
-                            mMap.addMarker(
-                                MarkerOptions().position(loc).title(report.id.toString()).snippet(
-                                    "Titulo: " + report.title
+            // call service and markers
+            call.enqueue(object : Callback<List<OutputReports>> {
+                override fun onResponse(
+                    call: Call<List<OutputReports>>,
+                    response: Response<List<OutputReports>>
+                ) {
+                    if (response.isSuccessful) {
+                        reports = response.body()!!
+                        for (report in reports) {
+                            val coords = report.location!!.split(",")!!.toTypedArray()
+                            loc =
+                                LatLng(
+                                    coords[0].toString().toDouble(),
+                                    coords[1].toString().toDouble()
                                 )
-                            )
-                                .setIcon(
-                                    BitmapDescriptorFactory.defaultMarker(
-                                        BitmapDescriptorFactory.HUE_ORANGE
+                            if (username == report.username) {
+                                mMap.addMarker(
+                                    MarkerOptions().position(loc).title(report.id.toString()).snippet(
+                                        "Titulo: " + report.title
                                     )
                                 )
-                        }else{
-                            mMap.addMarker(
-                                MarkerOptions().position(loc).title(report.id.toString()).snippet(
-                                    "Titulo: " + report.title
-                                )
-                            )
-                                .setIcon(
-                                    BitmapDescriptorFactory.defaultMarker(
-                                        BitmapDescriptorFactory.HUE_RED
+                                    .setIcon(
+                                        BitmapDescriptorFactory.defaultMarker(
+                                            BitmapDescriptorFactory.HUE_ORANGE
+                                        )
+                                    )
+                            } else {
+                                mMap.addMarker(
+                                    MarkerOptions().position(loc).title(report.id.toString()).snippet(
+                                        "Titulo: " + report.title
                                     )
                                 )
+                                    .setIcon(
+                                        BitmapDescriptorFactory.defaultMarker(
+                                            BitmapDescriptorFactory.HUE_RED
+                                        )
+                                    )
+                            }
                         }
                     }
                 }
-            }
 
-            override fun onFailure(call: Call<List<OutputReports>>, t: Throwable) {
-                Toast.makeText(this@MapsActivity, "Erro a carregar os marcadores", Toast.LENGTH_LONG).show()
-            }
-        })
+                override fun onFailure(call: Call<List<OutputReports>>, t: Throwable) {
+                    Toast.makeText(
+                        this@MapsActivity,
+                        "Erro a carregar os marcadores",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            })
+        } else {
+            //if(titleFilter.text.toString() != titleFilterOld) {
+                val SS = findViewById<Button>(R.id.btn_search_titulo)
+                SS.setOnClickListener{
+                    titleFilterOld = titleFilter.text.toString()
+                    Toast.makeText(this@MapsActivity, "TEXTCHANGE", Toast.LENGTH_LONG).show()
+                    val request = ServiceBuilder.buildService(EndPoints::class.java)
+                    val call = request.getReportsTIT(title = titleFilter.text.toString())
+                    var loc: LatLng
+
+                    // call service and markers
+                    call.enqueue(object : Callback<List<OutputReports>> {
+                        override fun onResponse(
+                            call: Call<List<OutputReports>>,
+                            response: Response<List<OutputReports>>
+                        ) {
+                            if (response.isSuccessful) {
+                                reports = response.body()!!
+                                for (report in reports) {
+                                    val coords = report.location!!.split(",")!!.toTypedArray()
+                                    loc =
+                                        LatLng(
+                                            coords[0].toString().toDouble(),
+                                            coords[1].toString().toDouble()
+                                        )
+                                    if (username == report.username) {
+                                        mMap.addMarker(
+                                            MarkerOptions().position(loc).title(report.id.toString()).snippet(
+                                                "Titulo: " + report.title
+                                            )
+                                        )
+                                            .setIcon(
+                                                BitmapDescriptorFactory.defaultMarker(
+                                                    BitmapDescriptorFactory.HUE_ORANGE
+                                                )
+                                            )
+                                    } else {
+                                        mMap.addMarker(
+                                            MarkerOptions().position(loc).title(report.id.toString()).snippet(
+                                                "Titulo: " + report.title
+                                            )
+                                        )
+                                            .setIcon(
+                                                BitmapDescriptorFactory.defaultMarker(
+                                                    BitmapDescriptorFactory.HUE_RED
+                                                )
+                                            )
+                                    }
+                                }
+                            }
+                        }
+
+                        override fun onFailure(call: Call<List<OutputReports>>, t: Throwable) {
+                            Toast.makeText(
+                                this@MapsActivity,
+                                "Erro a carregar os marcadores",
+                                Toast.LENGTH_LONG
+                            ).show()
+                        }
+                    })
+                }
+            //}
+        }
 
         //added to implement location periodic updates
         locationCallback = object: LocationCallback(){
@@ -134,10 +219,15 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoWi
                 var loc = LatLng(lastLocation.latitude, lastLocation.longitude)
                 lat = lastLocation.latitude.toString()
                 log = lastLocation.longitude.toString()
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, 15.0f))
+                if(setset == 0) {
+                    setset = 1
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, 15.0f))
+                }
                 //findViewById<TextView>()
             }
         }
+
+
 
         //request creation
         createLocationRequest()

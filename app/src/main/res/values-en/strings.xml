@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RoadAlert</string>
+    <string name="erro_sem_alteracao_anotacao">Note unchanged</string>
+    <string name="erro_vazio">Fill all the requirements</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="guardar">Save</string>
+    <string name="voltar">Back</string>
+    <string name="titulo_AP">Private Notes</string>
+    <string name="titulo_AP_nova">New Note</string>
+    <string name="titulo_AP_editar">Edit Note</string>
+    <string name="ser_titulo">Title</string>
+    <string name="ser_maisrecentes">Most Recents</string>
+    <string name="campo_titulo">Title</string>
+    <string name="campo_descricao">Description</string>
+    <string name="titulo_LG">Login</string>
+    <string name="campo_utilizador">Username</string>
+    <string name="campo_password">Password</string>
+    <string name="campo_password_rep">Repit Password</string>
+    <string name="campo_nome">Name</string>
+    <string name="campo_email">E-mail</string>
+    <string name="lembrar">Remember</string>
+    <string name="iniciarsessao">Login</string>
+    <string name="registar">Regist</string>
+    <string name="procurar">Search</string>
+    <string name="campo_imagem">Image</string>
+    <string name="titulo_SP_nova">New Report</string>
+    <string name="titulo_SP_editar">Edit Report</string>
+    <string name="campo_la">Current Location</string>
+    <string name="titulo_SPU">Report</string>
+    <string name="titulo_SP">Public Reports</string>
+    <string name="TS">Logout</string>
+</resources>

@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/MyOrangeO"
-                android:text="voltar"
+                android:text="@string/voltar"
                 android:textSize="8pt"
                 android:textStyle="bold"
                 android:layout_toEndOf="@id/novo_report_back"
@@ -51,7 +51,7 @@
                 android:layout_marginTop="10dp"
                 android:textAlignment="center"
                 android:textColor="@color/MyBrown"
-                android:text="Novo Report"/>
+                android:text="@string/titulo_SP_nova"/>
 
         </RelativeLayout>
 
@@ -69,13 +69,13 @@
                 android:textColor="@color/MyOrangeB"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="40dp"
-                android:text="Título"/>
+                android:text="@string/campo_titulo"/>
 
             <EditText
                 android:id="@+id/report_titulo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Título..."
+                android:hint="@string/campo_titulo"
                 android:textSize="8pt"
                 android:textColor="@color/MyBrown"
                 android:layout_below="@id/label_titulo_report"
@@ -92,13 +92,13 @@
             android:textColor="@color/MyOrangeB"
             android:layout_marginTop="20dp"
             android:layout_marginStart="40dp"
-            android:text="Descrição"/>
+            android:text="@string/campo_descricao"/>
 
             <EditText
                 android:id="@+id/report_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Descrição..."
+                android:hint="@string/campo_descricao"
                 android:textSize="8pt"
                 android:textColor="@color/MyBrown"
                 android:layout_below="@id/label_desc_report"
@@ -115,13 +115,13 @@
                 android:textColor="@color/MyOrangeB"
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="40dp"
-                android:text="Imagem"/>
+                android:text="@string/campo_imagem"/>
 
             <EditText
                 android:id="@+id/report_img"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Imagem..."
+                android:hint="@string/campo_imagem"
                 android:textSize="8pt"
                 android:textColor="@color/MyBrown"
                 android:layout_below="@id/label_img_report"
@@ -142,7 +142,7 @@
                 android:layout_marginStart="50dp"
                 android:layout_marginEnd="50dp"
                 android:layout_marginTop="50dp"
-                android:text="Guardar"/>
+                android:text="@string/guardar"/>
 
         </RelativeLayout>
 

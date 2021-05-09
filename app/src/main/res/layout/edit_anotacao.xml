@@ -45,7 +45,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/MyOrangeO"
-                    android:text="voltar"
+                    android:text="@string/voltar"
                     android:textSize="8pt"
                     android:textStyle="bold"
                     android:layout_toEndOf="@id/edit_anotacao_back"
@@ -79,13 +79,13 @@
                     android:textColor="@color/MyOrangeB"
                     android:layout_marginTop="10dp"
                     android:layout_marginStart="40dp"
-                    android:text="Título"/>
+                    android:text="@string/campo_titulo"/>
 
                 <EditText
                     android:id="@+id/anotacao_titulo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Título..."
+                    android:hint="@string/campo_titulo"
                     android:textSize="8pt"
                     android:textColor="@color/MyBrown"
                     android:layout_below="@id/label_titulo_anotacao"
@@ -102,14 +102,14 @@
                     android:textColor="@color/MyOrangeB"
                     android:layout_marginTop="20dp"
                     android:layout_marginStart="40dp"
-                    android:text="Descrição"/>
+                    android:text="@string/campo_descricao"/>
 
 
                 <EditText
                     android:id="@+id/anotacao_desc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Descrição..."
+                    android:hint="@string/campo_descricao"
                     android:textSize="8pt"
                     android:textColor="@color/MyBrown"
                     android:layout_below="@id/label_desc_anotacao"
@@ -140,7 +140,7 @@
                     android:layout_marginStart="50dp"
                     android:layout_marginEnd="50dp"
                     android:layout_marginTop="50dp"
-                    android:text="Guardar"/>
+                    android:text="@string/guardar"/>
 
             </RelativeLayout>
 

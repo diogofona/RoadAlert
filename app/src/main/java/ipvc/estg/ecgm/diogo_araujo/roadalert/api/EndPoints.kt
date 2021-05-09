@@ -25,7 +25,8 @@ interface EndPoints {
 
     @FormUrlEncoded
     @POST("/myslim/reports/tit")
-    fun getReportsTIT(): Call<List<OutputReports>>
+    fun getReportsTIT(@Field("title") title: String
+                     ): Call<List<OutputReports>>
 
     @FormUrlEncoded
     @POST("/myslim/report")

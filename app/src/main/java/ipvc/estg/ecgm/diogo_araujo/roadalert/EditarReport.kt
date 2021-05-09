@@ -33,6 +33,7 @@ class EditarReport: AppCompatActivity() {
     private lateinit var report_desc: EditText
     private lateinit var report_img: EditText
     private lateinit var report_date: TextView
+    private lateinit var newL: CheckBox
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +43,7 @@ class EditarReport: AppCompatActivity() {
         report_desc = findViewById(R.id.report_desc)
         report_img = findViewById(R.id.report_img)
         report_date = findViewById(R.id.label_atualizada)
+        newL = findViewById(R.id.newlocation)
 
         if(intent.getStringExtra("ID").toString() != ""){
             id = intent.getStringExtra("ID").toString()
@@ -94,9 +96,29 @@ class EditarReport: AppCompatActivity() {
             if(!TextUtils.isEmpty(report_titulo.text) && !TextUtils.isEmpty(report_desc.text) && !TextUtils.isEmpty(report_img.text)) {
                 val DT = LocalDateTime.now().toString()
                 val request = ServiceBuilder.buildService(EndPoints::class.java)
-                var loc = latitude + "," + longitude;
-                val call = request.editReport(id = id, username = username, title = report_titulo.text.toString(), situation = report_desc.text.toString(), location = loc.toString(), image = report_img.text.toString(), date = DT)
-
+                var loc = latitude + "," + longitude
+                var call = request.editReport(id = id, username = username, title = report_titulo.text.toString(), situation = report_desc.text.toString(), location = loc.toString(), image = report_img.text.toString(), date = DT)
+                if(newL.isChecked == true) {
+                    call = request.editReport(
+                        id = id,
+                        username = username,
+                        title = report_titulo.text.toString(),
+                        situation = report_desc.text.toString(),
+                        location = loc.toString(),
+                        image = report_img.text.toString(),
+                        date = DT
+                    )
+                } else {
+                    call = request.editReport(
+                        id = id,
+                        username = username,
+                        title = report_titulo.text.toString(),
+                        situation = report_desc.text.toString(),
+                        location = location,
+                        image = report_img.text.toString(),
+                        date = DT
+                    )
+                }
                 call.enqueue(object : Callback<OutputReport> {
                     override fun onResponse(
                         call: Call<OutputReport>,
